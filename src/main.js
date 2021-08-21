@@ -24,38 +24,34 @@ let firstPost = document.querySelector("#first-post");
 let secondPost = document.querySelector("#second-post");
 let thirdPost = document.querySelector("#third-post");
 
-firstPost.addEventListener('mouseenter', function(){
-    firstPost.classList.add('infocus');
-    secondPost.classList.add('blur');
-    thirdPost.classList.add('blur');
-})
 
-firstPost.addEventListener('mouseleave', function(){
-    firstPost.classList.remove('infocus');
-    secondPost.classList.remove('blur');
-    thirdPost.classList.remove('blur');
-})
+function enfocar(post1, post2, post3){
+    post1.addEventListener('mouseenter', function(){
+        post1.classList.add('infocus');
+        post2.classList.add('blur');
+        post3.classList.add('blur');
+    })
+}
 
-secondPost.addEventListener('mouseenter', function(){
-    firstPost.classList.add('blur');
-    secondPost.classList.add('infocus');
-    thirdPost.classList.add('blur');
-})
+function desenfocar(post1, post2, post3){
+    post1.addEventListener('mouseleave', function(){
+        post1.classList.remove('infocus');
+        post2.classList.remove('blur');
+        post3.classList.remove('blur');
+    })
+}
 
-secondPost.addEventListener('mouseleave', function(){
-    firstPost.classList.remove('blur');
-    secondPost.classList.remove('infocus');
-    thirdPost.classList.remove('blur');
-})
+/* Primer post */
 
-thirdPost.addEventListener('mouseenter', function(){
-    firstPost.classList.add('blur');
-    secondPost.classList.add('blur');
-    thirdPost.classList.add('infocus');
-})
+enfocar(firstPost, secondPost, thirdPost);
+desenfocar(firstPost, secondPost, thirdPost);
 
-thirdPost.addEventListener('mouseleave', function(){
-    firstPost.classList.remove('blur');
-    secondPost.classList.remove('blur');
-    thirdPost.classList.remove('infocus');
-})
+/* Segundo post */
+
+enfocar(secondPost, firstPost, thirdPost);
+desenfocar(secondPost, firstPost, thirdPost);
+
+/* Tercer post */
+
+enfocar(thirdPost, firstPost, secondPost);
+desenfocar(thirdPost, firstPost, secondPost);
