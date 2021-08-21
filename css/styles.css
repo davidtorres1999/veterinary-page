@@ -640,6 +640,7 @@ section#contactus {
             z-index: 3;
             height: 100vh;
             width: 130px;
+            animation: slide .5s;
         }
 
         ul#navegacion{
@@ -661,6 +662,20 @@ section#contactus {
 
         .menu-oculto{
             display: none;
+        }
+
+        .slide-right{
+
+        }
+
+        @keyframes slide {
+            0%{
+                right: -200px;
+            }
+
+            100%{
+                right: 0;
+            }
         }
 
     div.div-text-input {
